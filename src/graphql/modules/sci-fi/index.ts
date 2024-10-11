@@ -3,7 +3,7 @@ import { createModule } from "@composabase/sdk"
 const scifi = () => {
   const module = createModule('sci-fi')
 
-  module.union('PeopleCharacterUnion', ['Person', 'Character'])
+  module.union('PeopleCharacterUnion', ['swapi_Person', 'rick_morty_Character'])
 
   module.query('findPersonAndCharacter', {
     definition: {

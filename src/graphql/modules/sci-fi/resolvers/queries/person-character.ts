@@ -10,14 +10,14 @@ export default async function Resolver({ operation }: ResolverProps) {
     ${personFragment}
     ${characterFragment}
     query findPersonAndCharacter {
-      swapi {
+      swapi_subgraph {
         allPeople (first: 20) {
           people {
             ...PersonFragment
           }
         }
       }
-      rick_morty {
+      rick_morty_subgraph {
         characters {
           results {
             ...CharacterFragment
@@ -37,7 +37,7 @@ export default async function Resolver({ operation }: ResolverProps) {
     return []
   }
 
-  const { swapi: { allPeople: { people } }, rick_morty: { characters: { results } } } = data
+  const { swapi_subgraph: { allPeople: { people } }, rick_morty_subgraph: { characters: { results } } } = data
 
   return [...people, ...results]
 }
